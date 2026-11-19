@@ -1,0 +1,240 @@
+/* Architectural blueprint grid */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(198, 161, 106, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198, 161, 106, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.blueprint-grid-dense {
+  background-image:
+    linear-gradient(rgba(198, 161, 106, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198, 161, 106, 0.035) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Subtle architectural crosshairs */
+.blueprint-crosshair {
+  position: relative;
+}
+.blueprint-crosshair::after {
+  content: '+';
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-family: monospace;
+  font-size: 14px;
+  color: rgba(198, 161, 106, 0.35);
+  pointer-events: none;
+}
+
+/* Gold glow effects */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(198, 161, 106, 0.2);
+}
+
+.gold-glow-lg {
+  box-shadow: 0 0 50px rgba(198, 161, 106, 0.15);
+}
+
+/* Loader bar animation */
+@keyframes goldPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scaleX(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.animate-gold-pulse {
+  animation: goldPulse 2s ease-in-out infinite;
+}
+
+/* Shimmer animation for card borders */
+@keyframes shimmerLine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(198, 161, 106, 0.12),
+    transparent
+  );
+  animation: shimmerLine 2.8s infinite;
+}
+
+/* Water caustics & ripple animations for watery portrait effect */
+@keyframes waterRipple {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-water-ripple-1 {
+  animation: waterRipple 3.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-water-ripple-2 {
+  animation: waterRipple 3.6s cubic-bezier(0.16, 1, 0.3, 1) infinite 1.2s;
+}
+
+.animate-water-ripple-3 {
+  animation: waterRipple 3.6s cubic-bezier(0.16, 1, 0.3, 1) infinite 2.4s;
+}
+
+@keyframes waterCausticGleam {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.15;
+  }
+  50% {
+    background-position: 100% 100%;
+    opacity: 0.35;
+  }
+  100% {
+    background-position: 0% 0%;
+    opacity: 0.15;
+  }
+}
+
+.water-caustics-overlay {
+  background: radial-gradient(circle at 30% 20%, rgba(14, 165, 233, 0.25), transparent 45%),
+              radial-gradient(circle at 70% 80%, rgba(201, 154, 50, 0.2), transparent 50%),
+              linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%, rgba(14, 165, 233, 0.15) 100%);
+  background-size: 200% 200%;
+  animation: waterCausticGleam 6s ease-in-out infinite;
+}
+
+/* Underwater light rays swaying */
+@keyframes waterRaysSway {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: rotate(3deg) scale(1.06);
+    opacity: 0.48;
+  }
+}
+
+.animate-water-rays {
+  animation: waterRaysSway 8s ease-in-out infinite;
+}
+
+/* Metallic gold text light sweep */
+@keyframes goldLightSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.metallic-gold-sweep {
+  background: linear-gradient(
+    110deg,
+    #9E7422 0%,
+    #C69A45 28%,
+    #FFF8E7 50%,
+    #C69A45 72%,
+    #9E7422 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldLightSweep 6s linear infinite;
+}
+
+/* Continuous Color Cycling (Gold -> Blue -> Red -> Gold) & Moving Animations for Contact Badge */
+@keyframes colorCycleGoldBlueRed {
+  0%, 100% {
+    color: #C99A32; /* Gold */
+    border-color: #C99A32;
+    background-color: rgba(201, 154, 50, 0.08);
+    box-shadow: 0 0 14px rgba(201, 154, 50, 0.35);
+  }
+  33.33% {
+    color: #1E40AF; /* Construction Blue */
+    border-color: #1E40AF;
+    background-color: rgba(30, 64, 175, 0.08);
+    box-shadow: 0 0 14px rgba(30, 64, 175, 0.35);
+  }
+  66.66% {
+    color: #DC2626; /* Vibrant Red */
+    border-color: #DC2626;
+    background-color: rgba(220, 38, 38, 0.08);
+    box-shadow: 0 0 14px rgba(220, 38, 38, 0.35);
+  }
+}
+
+@keyframes phoneRingShake {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  10%, 30% {
+    transform: rotate(-14deg) scale(1.15);
+  }
+  20%, 40% {
+    transform: rotate(14deg) scale(1.15);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes contactBounceMove {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.contact-animated-btn {
+  animation: colorCycleGoldBlueRed 4.5s ease-in-out infinite, contactBounceMove 2.5s ease-in-out infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-animated-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.contact-phone-icon {
+  animation: phoneRingShake 2.2s ease-in-out infinite;
+  display: inline-block;
+  transform-origin: center center;
+}
+
+
+

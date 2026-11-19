@@ -1,0 +1,31 @@
+/* Responsive enhancements & touch adaptations */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll on small devices */
+  body {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Optimize touch target sizes */
+  button, a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Responsive section spacing */
+  .section-padding {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .section-padding {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+  }
+}
+

@@ -1,0 +1,17 @@
+@import "./styles/globals.css";
+@import "./styles/animations.css";
+@import "./styles/responsive.css";
+
+/* ── Calculator Print Styles ── */
+@media print {
+  html, body {
+    zoom: 1 !important;
+  }
+  body > *:not(.print-root) { display: none !important; }
+  .print-only { display: block !important; }
+  @page { margin: 1.2cm; size: A4 portrait; }
+}
+
+.print-only {
+  display: none;
+}

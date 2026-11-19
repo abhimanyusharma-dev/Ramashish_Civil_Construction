@@ -1,0 +1,166 @@
+/* ==========================================================================
+   RAMASHISH CIVIL CONSTRUCTION — CINEMATIC BRAND INTRO STYLES
+   Brand Colors:
+   - Deep Navy Blue: #071D3B
+   - Royal Construction Blue: #123D68
+   - Metallic Golden: #D9A126
+   - Champagne Gold: #F3CF76
+   - Pure White: #FFFFFF
+   ========================================================================== */
+
+:root {
+  --navy-darkest: #041021;
+  --navy-deep: #071D3B;
+  --navy-royal: #123D68;
+  --navy-border: #E8E4DA;
+
+  --gold-light: #F3CF76;
+  --gold-primary: #D9A126;
+  --gold-dark: #9E7422;
+
+  --font-brand-sans: 'Inter', sans-serif;
+  --font-brand-heading: 'Montserrat', sans-serif;
+  --font-brand-mono: 'IBM Plex Mono', monospace;
+}
+
+/* Fullscreen Cinematic Viewport (Pure White Background with Architectural Grid) */
+.intro-viewport {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #FFFFFF;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  perspective: 1200px;
+  z-index: 99999;
+}
+
+/* Architectural Blueprint Grid Layer */
+.intro-blueprint-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(rgba(217, 161, 38, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 161, 38, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(7, 29, 59, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 29, 59, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+  background-position: center center;
+}
+
+/* Subtle Vignette to focus center */
+.intro-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 40%, rgba(255, 255, 255, 0.4) 75%, rgba(248, 248, 246, 0.8) 100%);
+}
+
+/* Ambient Radial Glow Behind Logo */
+.intro-ambient-glow {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 680px;
+  height: 680px;
+  max-width: 90vw;
+  max-height: 90vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 161, 38, 0.16) 0%, rgba(243, 207, 118, 0.06) 45%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  filter: blur(48px);
+}
+
+/* Golden Dust Particles Canvas */
+.intro-particles-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Centerpiece Container */
+.intro-centerpiece {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  max-width: 960px;
+  width: 100%;
+}
+
+/* Minimal Skip Intro Button (Clean White + Deep Navy + Gold Accents) */
+.intro-skip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-brand-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #071D3B;
+  background: #FFFFFF;
+  border: 1.5px solid #D9A126;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(7, 29, 59, 0.08), 0 0 12px rgba(217, 161, 38, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.intro-skip-btn:hover {
+  background: #F8F8F6;
+  border-color: #F3CF76;
+  color: #9E7422;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(217, 161, 38, 0.25);
+}
+
+.intro-skip-btn:active {
+  transform: translateY(0);
+}
+
+/* Left Elevation Drawing Responsiveness */
+.left-elevation-wrapper {
+  transition: opacity 0.6s ease;
+}
+
+@media (max-width: 768px) {
+  .left-elevation-wrapper {
+    display: none;
+  }
+}
+
+/* Right Tower Crane Responsiveness */
+.right-crane-wrapper {
+  transition: opacity 0.6s ease;
+}
+
+@media (max-width: 640px) {
+  .right-crane-wrapper {
+    opacity: 0.35;
+    transform: scale(0.7) translateX(80px);
+    transform-origin: right center;
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

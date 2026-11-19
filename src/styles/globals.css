@@ -1,0 +1,376 @@
+@import "tailwindcss";
+
+@theme {
+  --color-white: #FFFFFF;
+  --color-soft-bg: #F7F7F5;
+  --color-ivory: #F7F7F5;
+  --color-gold: #C99A32;
+  --color-gold-light: #E8C46B;
+  --color-gold-champagne: #E8C46B;
+  --color-gold-dark: #9E7422;
+  --color-navy: #071B36;
+  --color-navy-royal: #123B63;
+  --color-navy-dark: #051326;
+  --color-navy-surface: #0E294B;
+  --color-graphite: #20252B;
+  --color-soft-grey: #F0F1F2;
+  --color-text-primary: #071B36;
+  --color-text-secondary: #5A6573;
+  --color-border: #E8E4DA;
+  --color-border-subtle: #EDE9E1;
+  --color-border-hover: #C99A32;
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-nav: 'Montserrat', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-stylish: 'Cinzel', 'Montserrat', serif;
+  --font-recursive: 'Recursive', cursive, sans-serif;
+  --font-cursive: 'Caveat', 'Dancing Script', 'Recursive', cursive;
+}
+
+.font-stylish {
+  font-family: var(--font-stylish);
+}
+
+.font-recursive {
+  font-family: var(--font-recursive);
+  font-variation-settings: 'MONO' 0, 'CASL' 0.3, 'wght' 800, 'slnt' 0;
+}
+
+.font-cursive {
+  font-family: var(--font-cursive);
+}
+
+/* Base resets & smooth rendering */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 90%; /* 10% proportional scale reduction */
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #C99A32 #F7F7F5;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #FFFFFF;
+  color: #071B36;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings font inheritance */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Global content paragraph alignment — aligns all website paragraphs in justified paragraph style */
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+}
+
+/* Custom luxury scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F7F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C99A32;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9E7422;
+}
+
+/* Glass navigation */
+.navbar-glass {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #E8E4DA;
+}
+
+/* Luxury card styling */
+.luxury-card, .card-architectural {
+  background-color: #FFFFFF;
+  border: 1px solid #E8E4DA;
+  border-radius: 12px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover, .card-architectural:hover {
+  border-color: #C99A32;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -10px rgba(7, 27, 54, 0.08), 0 0 20px rgba(201, 154, 50, 0.14);
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C99A32 0%, #E8C46B 50%, #9E7422 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section accent divider */
+.section-divider {
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, #C99A32, #E8C46B 65%, transparent);
+  border-radius: 2px;
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Blueprint subtle grid overlay */
+.blueprint-grid {
+  background-image: 
+    linear-gradient(rgba(201, 154, 50, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 154, 50, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.blueprint-grid-dense {
+  background-image: 
+    linear-gradient(rgba(7, 27, 54, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 27, 54, 0.05) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Subtle Concrete Texture Surface */
+.concrete-texture {
+  background-color: #F7F7F5;
+  background-image: radial-gradient(rgba(32, 37, 43, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Premium Quotation Action Button */
+.btn-quotation {
+  background: linear-gradient(135deg, #071B36 0%, #123B63 100%);
+  color: #FFFFFF;
+  border: 1.5px solid #C99A32;
+  box-shadow: 0 4px 14px rgba(7, 27, 54, 0.25), inset 0 1px 0 rgba(232, 196, 107, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-quotation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(232, 196, 107, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-quotation:hover {
+  transform: translateY(-2px);
+  border-color: #E8C46B;
+  box-shadow: 0 8px 24px rgba(7, 27, 54, 0.35), 0 0 16px rgba(201, 154, 50, 0.4);
+}
+
+.btn-quotation:hover::before {
+  left: 100%;
+}
+
+/* Premium Quotation Action Button - Dark Green Variant */
+.btn-quotation-green {
+  background: linear-gradient(135deg, #032317 0%, #09412B 50%, #032317 100%);
+  color: #FFFFFF;
+  border: 1.5px solid #C99A32;
+  box-shadow: 0 4px 14px rgba(3, 35, 23, 0.35), inset 0 1px 0 rgba(232, 196, 107, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-quotation-green::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(232, 196, 107, 0.35), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-quotation-green:hover {
+  transform: translateY(-2px);
+  border-color: #E8C46B;
+  box-shadow: 0 8px 24px rgba(3, 35, 23, 0.45), 0 0 16px rgba(201, 154, 50, 0.4);
+}
+
+.btn-quotation-green:hover::before {
+  left: 100%;
+}
+
+/* Continuous Right-to-Left Testimonial Marquee */
+@keyframes marquee-rtl {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-rtl {
+  animation: marquee-rtl 70s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-rtl:hover {
+  animation-play-state: paused;
+}
+
+/* Continuous Left-to-Right Testimonial Marquee (legacy / reversible) */
+@keyframes marquee-ltr {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 70s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-ltr:hover {
+  animation-play-state: paused;
+}
+
+/* Floating replay button */
+.website-replay-floating-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background-color: #071B36;
+  color: #FFFFFF;
+  border: 1px solid #C99A32;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 10px 25px -5px rgba(7, 27, 54, 0.3), 0 0 15px rgba(201, 154, 50, 0.25);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.website-replay-floating-btn:hover {
+  background-color: #123B63;
+  border-color: #E8C46B;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -5px rgba(7, 27, 54, 0.4), 0 0 20px rgba(201, 154, 50, 0.35);
+}
+
+/* Vertical Architectural Scroll Progress on Side */
+.vertical-scroll-tracker {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 180px;
+  width: 2px;
+  background: rgba(232, 228, 218, 0.6);
+  z-index: 45;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-scroll-tracker-thumb {
+  width: 100%;
+  background: linear-gradient(180deg, #C99A32, #E8C46B);
+  box-shadow: 0 0 8px rgba(201, 154, 50, 0.7);
+  border-radius: 2px;
+  transition: height 0.1s ease-out;
+}
+
+/* Accessibility: respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Gold shimmer on important text elements */
+.shimmer-gold {
+  background: linear-gradient(90deg, #C99A32 0%, #E8C46B 40%, #9E7422 60%, #C99A32 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-move 3s linear infinite;
+}
+
+@keyframes shimmer-move {
+  to { background-position: 200% center; }
+}
+
+/* Section entrance: fade up */
+.section-fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+}
+
+.section-fade-up.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Gold decorative horizontal rule */
+.gold-rule {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #C99A32, #E8C46B 60%, transparent);
+  border-radius: 2px;
+}
+
+/* Premium card hover glow */
+.card-gold-hover:hover {
+  box-shadow: 0 0 0 1.5px #C99A32, 0 12px 32px -8px rgba(201,154,50,0.18);
+}
+
