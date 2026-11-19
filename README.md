@@ -1,13 +1,13 @@
 # SHREE RAM ASHISH — Civil Contractor Portfolio
 
-> **"35 Years of Experience. A Foundation of Trust."**  
+> **"25 Years of Experience. A Foundation of Trust."**  
 > Civil Construction & Structural Engineering Firm led by **Sandeep Sharma**, Bhopal, Madhya Pradesh, India.
 
 ---
 
 ## 🏗️ Overview
 
-A modern, cinematic, high-performance web portfolio for **Shree Ram Ashish**, an established civil contractor in Bhopal with 35+ years of practical on-site experience and 30+ completed projects across residential, commercial, and heavy RCC construction.
+A modern, cinematic, high-performance web portfolio for **Shree Ram Ashish**, an established civil contractor in Bhopal with 35+ years of practical on-site experience and 150+ completed projects across residential, commercial, and heavy RCC construction.
 
 Built using React, Vite, Tailwind CSS, Framer Motion, GSAP, and Lucide React with international architectural aesthetic standards (#101214 charcoal background, #C6A16A gold accents, Space Grotesk & Inter typography).
 
@@ -145,8 +145,8 @@ All components automatically consume this centralized source of truth.
 
 - **Firm Name:** Shree Ram Ashish
 - **Owner:** Sandeep Sharma (Civil Contractor)
-- **Experience:** 35 Years (Since 1989)
-- **Projects:** 30+ Landmark Structures
+- **Experience:** 25 Years (Since 1989)
+- **Projects:** 150+ Landmark Structures
 - **Location:** Bhopal, Madhya Pradesh, India
 - **Phone:** `+91 9826386803`
 - **WhatsApp:** `https://wa.me/919826386803`
